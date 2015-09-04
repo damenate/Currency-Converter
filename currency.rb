@@ -7,15 +7,23 @@ class Currency
   end
 
   def ==(number)
-   @amount ==(number.amount) && @type == (number.type)
-
-end
+    @amount ==(number.amount) && @type == (number.type)
+    true
+  end
 
   def +(number)
-    @amount += number.amount
+    if @type == number.type
+      Currency.new(number.amount + @amount,@type)
+    else
+     raise CurrencyTypeError,"Using two different currency types, don't do that."
+    end
   end
 
   def -(number)
-    @amount -= number.amount
+    if @type == number.type
+      Currency.new(number.amount - @amount,@type)
+    else
+      raise CurrencyTypeError,"Using two different currency types, don't do that."
+    end
   end
 end

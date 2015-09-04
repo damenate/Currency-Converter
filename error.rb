@@ -1,0 +1,2 @@
+class CurrencyTypeError < StandardError
+end
