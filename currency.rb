@@ -6,6 +6,9 @@ class Currency
     @type = type
   end
 
+  def symbol(input, value)
+  end
+
   def ==(number)
     @amount ==(number.amount) && @type == (number.type)
     true
@@ -15,7 +18,7 @@ class Currency
     if @type == number.type
       Currency.new(number.amount + @amount,@type)
     else
-     raise CurrencyTypeError,"Using two different currency types, don't do that."
+     raise CurrencyTypeError,"STOP using two different currency types."
     end
   end
 
@@ -23,7 +26,11 @@ class Currency
     if @type == number.type
       Currency.new(number.amount - @amount,@type)
     else
-      raise CurrencyTypeError,"Using two different currency types, don't do that."
+      raise CurrencyTypeError,"STOP using two different currency types."
     end
+  end
+
+  def *(times)
+      Currency.new(@amount * times,@type)
   end
 end
