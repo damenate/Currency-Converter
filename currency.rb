@@ -7,6 +7,7 @@ class Currency
   def initialize(amount, type = nil)
     type_hash = Hash.new()
     type_hash = {"$" => :USD, "€" => :EUR, "¥" => :JPY}
+
     if type
       @type = type.to_sym
       @amount = amount
