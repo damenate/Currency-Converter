@@ -1,3 +1,6 @@
+class CurrencyTypeError < StandardError
+end
+
 class Currency
   attr_accessor :amount, :type
 
@@ -6,7 +9,16 @@ class Currency
     @type = type
   end
 
-  def symbol(input, value)
+  def symbol(value, type)
+    if type[0] == "$"
+      type = "USD"
+      amount = value[1..-1]
+      amount = amount.to_f
+    else type[0] == "€"
+      type = "EUR"
+      amount = value[1..-1]
+      amount = amount.to_f
+    end
   end
 
   def ==(number)

@@ -1,2 +1,0 @@
-class CurrencyTypeError < StandardError
-end
