@@ -9,15 +9,14 @@ class Currency
     @type = type
   end
 
-  def symbol(value, type)
-    if type[0] == "$"
-      type = "USD"
-      amount = value[1..-1]
-      amount = amount.to_f
-    else type[0] == "€"
-      type = "EUR"
-      amount = value[1..-1]
-      amount = amount.to_f
+  def type_hash
+    type_hash = {"$" => :USD, "€" => :EUR}
+    if amount
+      @type = type.to_sym
+      @amount = amount
+    else
+      @type = type_hash[type[0]]
+      @amount = type[1..-1].to_f
     end
   end
 
