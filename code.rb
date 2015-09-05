@@ -1,55 +1,49 @@
 require './currency.rb'
 require './converter.rb'
 
-# dollar1 = Currency.new(10, :USD)
-# dollar_type = Currency.new("$10")
-# euro1 = Currency.new(25.00, :EUR)
-# euro2 = Currency.new(25.00, :EUR)
-#
-# puts "Your amount #{dollar1.amount} and currency type is #{dollar1.type}"
-# 
 
-dollars = Currency.new(100000, :USD)
+exchange_booth = CurrencyConverter.new({USD: 1.00, EUR: 0.89, JPY: 118.95})
+
+dollars = Currency.new(100, :USD)
 dollars_symbol = Currency.new("$100")
+puts "#{dollars_symbol.amount} #{dollars.type}"
 dollars_error = Currency.new("&100")
 euro = Currency.new(100, :EUR)
 euro_symbol = Currency.new("€100")
-yen = Currency.new(2000, :JPY)
+yen = Currency.new(200, :JPY)
 yen_symbol = Currency.new("¥2000")
-uk = Currency.new(100, :GBP)
-uk_symbol = Currency.new("£100")
 
-puts "*******Test Currency Converter for 1 USD*******"
-p currency_exchange.convert(Currency.new("$1"), :USD) == Currency.new(1, :USD)
-puts ""
+#dollars = Currency.new(10, :USD)
+#dollars_type = Currency.new("$10")
+#euro = Currency.new(25.00, :EUR)
 
-puts "*******Convert Any to Any*******"
-p currency_exchange.convert(dollars, :EUR).amount.round(2)
-puts ""
+puts "Your amount #{dollars.amount} and currency type is #{dollars.type}"
 
 
+puts "Testing $10 US dollars"
+puts exchange_booth.convert(Currency.new("$10"), :USD) == Currency.new(10, :USD)
 
 
-
+puts "Test the conversion of currency types."
+puts exchange_booth.convert(dollars, :EUR).amount.to_f
 
 
 #####Testing Currency for first section of HomeWork.#######
-# puts dollar1.amount
-# puts dollar2.type
-# puts dollar1 == dollar2
+# puts dollars.amount
+# puts dollars_type.type
+# puts dollars == dollars
 #
-# add_dollar = dollar1+dollar2
-# sub_dollar = dollar1-dollar2
+# add_dollar = dollars+dollars
+# sub_dollar = dollars-dollars
 #
-# puts add_dollar.amount
-# puts sub_dollar.amount
+# puts add_dollars.amount
+# puts sub_dollars.amount
 #
-# add_euro = euro1+euro2
-# sub_euro = euro1-euro2
+# add_euro = euro+euro
+# sub_euro = euro-euro
 #
 # puts add_euro.amount
 # puts sub_euro.amount
 #
-# multi_dollar = dollar1 * 5
-#
-# puts multi_dollar.amount
+# multi_dollars = dollars * 5
+# puts multi_dollars.amount

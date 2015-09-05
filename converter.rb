@@ -3,23 +3,21 @@ class CurrencyUnknownError < StandardError
 end
 
 class CurrencyConverter
-  attr_reader :rates
+  attr_reader :exchange_rates
 
   def initialize(rates)
-    @exchange_rate = rates
+    @exchange_rates = rates
   end
 
-exchange_rate = CurrencyConverter.new({USD: 1.00, EUR: 0.89, JPY: 118.95})
+#exchange_rates = CurrencyConverter.new({USD: 1.00, EUR: 0.89, JPY: 118.95})
 
   def convert(currency, type)
-    if !@exchange_rate.include?(currency.type) || !@exchange_rate.include?(type)
+    if !@exchange_rates.include?(currency.type) || !@exchange_rates.include?(type)
       raise CurrencyUnknownError, "That's a unknown currency!"
     else
-      Currency.new(currency.amount * (@exchange_rate[type] / @exchange_rate[currency.type]), type)
+      Currency.new(currency.amount * (@exchange_rates[type] / @exchange_rates[currency.type]), type)
     end
   end
-
-
 end
 
 

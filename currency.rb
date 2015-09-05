@@ -4,19 +4,15 @@ end
 class Currency
   attr_accessor :amount, :type
 
-  def initialize(amount,type)
-    @amount = amount
-    @type = type
-  end
-
-  def type_hash()
-    type_hash = {"$" => :USD, "€" => :EUR}
-    if amount
+  def initialize(amount, type = nil)
+    type_hash = Hash.new()
+    type_hash = {"$" => :USD, "€" => :EUR, "¥" => :JPY}
+    if type
       @type = type.to_sym
       @amount = amount
     else
-      @type = type_hash[type[0]]
-      @amount = type[1..-1].to_f
+      @type = type_hash[amount[0]]
+      @amount = amount[1..-1].to_f
     end
   end
 
