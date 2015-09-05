@@ -1,28 +1,26 @@
 
-class CurrencyError < StandardError
+class CurrencyUnknownError < StandardError
 end
-
-exchange_rate = Hash.new
-exchange_rate = {USD: 1.00, EUR: 0.89, GBP: 0.65}
 
 class CurrencyConverter
-  attr_reader
+  attr_reader :rates
 
-  def initialize()
-    @exchange_rate
+  def initialize(rates)
+    @exchange_rate = rates
   end
 
-  def convert(currency, code)
+exchange_rate = CurrencyConverter.new({USD: 1.00, EUR: 0.89, JPY: 118.95})
 
+  def convert(currency, type)
+    if !@exchange_rate.include?(currency.type) || !@exchange_rate.include?(type)
+      raise CurrencyUnknownError, "That's a unknown currency!"
+    else
+      Currency.new(currency.amount * (@exchange_rate[type] / @exchange_rate[currency.type]), type)
+    end
   end
 
 
 end
-
-
-
-
-
 
 
 # Should be initialized with a Hash of currency codes to conversion rates

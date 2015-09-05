@@ -9,7 +9,7 @@ class Currency
     @type = type
   end
 
-  def type_hash
+  def type_hash()
     type_hash = {"$" => :USD, "€" => :EUR}
     if amount
       @type = type.to_sym
