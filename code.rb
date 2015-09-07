@@ -2,7 +2,7 @@ require './currency.rb'
 require './converter.rb'
 
 
-exchange_booth = CurrencyConverter.new()
+exchange_booth = CurrencyConverter.new({USD: 1.00, EUR: 0.89, JPY: 118.95})
 
 dollars = Currency.new(100, :USD)
 dollars_symbol = Currency.new("$100")
