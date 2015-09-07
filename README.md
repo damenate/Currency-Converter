@@ -1,4 +1,6 @@
+<p align="center">
 ![alt text](http://www.artistsvalley.com/images/icons/Financial%20Accounting%20Icons/Currency%20Conversion/256x256/Currency%20Conversion.jpg "Logo Title Text 1")
+</p>
 ## Currency Conversion
 In here I have created two things. First being a Currency Class that represents amount of currency and the other is a Currency Converter that can convert between different Currency types using correct rates.
 
