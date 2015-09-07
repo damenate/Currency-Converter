@@ -6,11 +6,11 @@ end
 class CurrencyConverter
   attr_reader :exchange_rates
 
-  def initialize(rates)
-    @exchange_rates = rates
+  def initialize()
+    @exchange_rates = {USD: 1.00, EUR: 0.89, JPY: 118.95}
   end
 
-#exchange_rates = CurrencyConverter.new({USD: 1.00, EUR: 0.89, JPY: 118.95})
+#exchange_rates = {USD: 1.00, EUR: 0.89, JPY: 118.95}
 
   def convert(currency, type)
     if !@exchange_rates.include?(currency.type) || !@exchange_rates.include?(type)

@@ -2,13 +2,12 @@ require './currency.rb'
 require './converter.rb'
 
 
-exchange_booth = CurrencyConverter.new({USD: 1.00, EUR: 0.89, JPY: 118.95})
+exchange_booth = CurrencyConverter.new()
 
 dollars = Currency.new(100, :USD)
 dollars_symbol = Currency.new("$100")
-puts "#{dollars_symbol.amount} #{dollars.type}"
 dollars_error = Currency.new("%100")
-euro = Currency.new(100, :EUR)
+euros = Currency.new(125, :EUR)
 euro_symbol = Currency.new("€100")
 yen = Currency.new(200, :JPY)
 yen_symbol = Currency.new("¥2000")
@@ -16,6 +15,7 @@ yen_symbol = Currency.new("¥2000")
 #dollars = Currency.new(10, :USD)
 #dollars_type = Currency.new("$10")
 #euro = Currency.new(25.00, :EUR)
+puts "#{dollars_symbol.amount} #{dollars.type}"
 
 puts "Your amount #{dollars.amount} and currency type is #{dollars.type}"
 
@@ -25,8 +25,10 @@ puts exchange_booth.convert(Currency.new("$10"), :USD) == Currency.new(10, :USD)
 
 
 puts "Test the conversion of currency types."
-puts exchange_booth.convert(dollars, :EUR).amount.to_f
-
+cdy = exchange_booth.convert(dollars, :JPY).amount
+puts "%.2f" %cdy
+cey = exchange_booth.convert(euros, :JPY).amount
+puts "%.2f" %cey
 
 #####Testing Currency for first section of HomeWork.#######
 # puts dollars.amount

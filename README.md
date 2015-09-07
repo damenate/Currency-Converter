@@ -1,5 +1,6 @@
+![alt text](http://www.artistsvalley.com/images/icons/Financial%20Accounting%20Icons/Currency%20Conversion/256x256/Currency%20Conversion.jpg "Logo Title Text 1")
 ## Currency Conversion
-In here I have created two things. First being a Currency Class that represents amount of currency and the other is a Currency Converter that can convert between different Currency types using correct rates. 
+In here I have created two things. First being a Currency Class that represents amount of currency and the other is a Currency Converter that can convert between different Currency types using correct rates.
 
 ###Currency objects:
 - Created Currency Class with an amount and a currency code. (I used "type" instead of "code")
