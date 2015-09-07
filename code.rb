@@ -7,7 +7,7 @@ exchange_booth = CurrencyConverter.new({USD: 1.00, EUR: 0.89, JPY: 118.95})
 dollars = Currency.new(100, :USD)
 dollars_symbol = Currency.new("$100")
 puts "#{dollars_symbol.amount} #{dollars.type}"
-dollars_error = Currency.new("&100")
+dollars_error = Currency.new("%100")
 euro = Currency.new(100, :EUR)
 euro_symbol = Currency.new("€100")
 yen = Currency.new(200, :JPY)

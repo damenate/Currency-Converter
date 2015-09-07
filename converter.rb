@@ -1,4 +1,5 @@
 
+require './currency.rb'
 class CurrencyUnknownError < StandardError
 end
 
@@ -13,7 +14,7 @@ class CurrencyConverter
 
   def convert(currency, type)
     if !@exchange_rates.include?(currency.type) || !@exchange_rates.include?(type)
-      raise CurrencyUnknownError, "That's a unknown currency!"
+      raise CurrencyUnknownError, "That's an unknown currency!"
     else
       Currency.new(currency.amount * (@exchange_rates[type] / @exchange_rates[currency.type]), type)
     end
