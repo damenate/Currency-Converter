@@ -24,7 +24,7 @@ class Currency
 
   def +(number)
     if @type == number.type
-      Currency.new(number.amount + @amount,@type)
+      Currency.new(number.amount + @amount,@type) 
     else
      raise CurrencyTypeError,"STOP using two different currency types."
     end

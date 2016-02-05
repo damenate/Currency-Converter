@@ -9,7 +9,7 @@ class CurrencyConverter
   def initialize(rates)
     @exchange_rates = rates
   end
-
+  
 #exchange_rates = CurrencyConverter.new({USD: 1.00, EUR: 0.89, JPY: 118.95})
 
   def convert(currency, type)

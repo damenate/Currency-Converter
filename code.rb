@@ -15,6 +15,8 @@ yen_symbol = Currency.new("¥2000")
 #dollars = Currency.new(10, :USD)
 #dollars_type = Currency.new("$10")
 #euro = Currency.new(25.00, :EUR)
+
+puts dollars_error + dollars
 puts "#{dollars_symbol.amount} #{dollars.type}"
 
 puts "Your amount #{dollars.amount} and currency type is #{dollars.type}"
