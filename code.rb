@@ -1,5 +1,6 @@
 require './currency.rb'
 require './converter.rb'
+require './currency_trader.rb'
 
 
 exchange_booth = CurrencyConverter.new({USD: 1.00, EUR: 0.89, JPY: 118.95})
@@ -16,7 +17,8 @@ yen_symbol = Currency.new("¥2000")
 #dollars_type = Currency.new("$10")
 #euro = Currency.new(25.00, :EUR)
 
-puts dollars_error + dollars
+puts euro_symbol.type
+
 puts "#{dollars_symbol.amount} #{dollars.type}"
 
 puts "Your amount #{dollars.amount} and currency type is #{dollars.type}"
@@ -25,19 +27,32 @@ puts "Your amount #{dollars.amount} and currency type is #{dollars.type}"
 puts "Testing $10 US dollars"
 puts exchange_booth.convert(Currency.new("$10"), :USD) == Currency.new(10, :USD)
 
+add_dollar = dollars+dollars
+puts "#{add_dollar.amount}"
 
 puts "Test the conversion of currency types."
 cdy = exchange_booth.convert(dollars, :JPY).amount
 puts "%.2f" %cdy
 cey = exchange_booth.convert(euros, :JPY).amount
 puts "%.2f" %cey
+# puts dollars_error + dollars
+
+old_value = CurrencyConverter.new({USD: 1, EUR: 0.767, GBP: 0.642, AUD: 1.353, CAD: 1.355, JPY: 102.162})
+present_value = CurrencyConverter.new({USD: 1, EUR: 0.898, GBP: 0.656, AUD: 1.433, CAD: 1.322, JPY:119.863})
+
+hash_array = [old_value, present_value]
+#trader = Currency_Trader.new(old_value, present_value, :USD)
+#trader.find_best_investment
+
+trader = CurrencyTrader.new(hash_array, :USD)
+#trader.output
+trader.find_best_investment
 
 #####Testing Currency for first section of HomeWork.#######
 # puts dollars.amount
 # puts dollars_type.type
 # puts dollars == dollars
 #
-# add_dollar = dollars+dollars
 # sub_dollar = dollars-dollars
 #
 # puts add_dollars.amount
