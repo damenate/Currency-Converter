@@ -5,7 +5,7 @@ require './currency_trader.rb'
 
 exchange_booth = CurrencyConverter.new({USD: 1.00, EUR: 0.89, JPY: 118.95})
 
-dollars = Currency.new(100, :USD)
+dollars = Currency.new(10, :USD)
 dollars_symbol = Currency.new("$100")
 dollars_error = Currency.new("%100")
 euros = Currency.new(125, :EUR)
