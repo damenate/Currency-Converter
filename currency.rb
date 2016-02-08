@@ -2,7 +2,7 @@ class CurrencyTypeError < StandardError
 end
 
 class Currency
-  attr_accessor :amount, :type
+  attr_reader :amount, :type
 
   def initialize(amount, type = nil)
     type_hash = Hash.new()
@@ -24,7 +24,7 @@ class Currency
 
   def +(number)
     if @type == number.type
-      Currency.new(number.amount + @amount,@type) 
+      Currency.new(number.amount + @amount,@type)
     else
      raise CurrencyTypeError,"STOP using two different currency types."
     end
